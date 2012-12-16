@@ -6,11 +6,19 @@ There are 12 DOF in each leg, roll, pitch and yaw in the hip, pitch in the knee 
 
 The PHC runs on the concept of using separate process for 
 
+
+\begin{figure}[thpb]
+  \centering
+\includegraphics[width=1.0\columnwidth]{./pix/tmpGraph.png}
+  \caption{Hubo Primary Controller (HPC) and system framework}
+  \label{fig:graph}
+\end{figure}
+
 The primary PHC process is a daemon that talks over the CAN bus to all of the Hubo motor drivers and sensors.  
 The \textit{feedforward} and \textit{feedback} states are stored in the \textit{HUBO\_REF\_CHANNEL} and \textit{HUBO\_STATE\_CHANNEL}.  
 All information is stored in SI units.  The \textit{HUBO\_REF\_CHANNEL} holds a strut that has the desired reference for each of the joints in $rad$.  
-The \textit{HUBO\_STATE\_CHANNEL} contains the sensor data and that joint status data.  T
-his includes:
+The \textit{HUBO\_STATE\_CHANNEL} contains the sensor data and that joint status data.  
+This includes:
 
 \begin{itemize}
                 \item Encoder position (rad), at each joint
@@ -47,6 +55,7 @@ This is done to reduce the jerk of each of the actuated joints.
 
 The key point is that the PHC runs with a period of $T_H$ and updates the motors with the references from the feedforward channel no matter what rate the external controller is updating the feedforward channel at.  
 The sensors are also updated at a period of $T_H$.
+The structure of the system can be found in Fig.~\ref{fig:graph}.
 
 \begin{figure}[thpb]
   \centering
@@ -65,6 +74,7 @@ Current capabilities of the PHC system includes:
 \item OpenHUBO integration 
 \item Low frequency joint update filter.
 \end{itemize}
+
 
 
 
