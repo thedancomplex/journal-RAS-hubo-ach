@@ -1,6 +1,7 @@
 ACH is currently being used as the primary IPC method for the Primary Hubo Controller (PHC) for the Hubo2 Plus full-size humanoid robots.  
 The Hubo2 Plus is a 130 $cm$ tall humanoid robot commonly referred to as Hubo.  
-Hubo weighs 37 $kg$ and has 40 DOF.  
+Hubo weighs 37 $kg$ and has 40 DOF.
+Each DOF, with the exception of the fingers, are high gain PD position controlled .  
 There are 12 DOF in each leg, roll, pitch and yaw in the hip, pitch in the knee and roll and pitch in the ankle.  
 
 The PHC runs on the concept of using separate process for 
@@ -39,6 +40,13 @@ After each cycle the state is updated with the new sensor data.
 A separate process will subscribe to the \textit{feedforward} and \textit{feedback} channels and run it's own real-time loop.  
 This can run, update reference and read the feedback channel at any desired frequency within the processor and IPCs capabilities.
 The PHC will always take the most recent reference from the feedforward channel at the rising edge of it's clock cycle with the period of $T_H$.
+This ensures the motor drivers are updated at a constant rate. 
+Each motor driver accepts a position reference and uses a phase locked loop (PLL) to lock onto the frequency and timing of the incoming reference commands.
+The motor driver then linearly interpolates the reference commands from the current position to the set position to increase the commanded rate to the motor itself by 5 times the command frequency, $\frac{1}{T_H}$.
+This is done to reduce the jerk of each of the actuated joints.
+
+The key point is that the PHC runs with a period of $T_H$ and updates the motors with the references from the feedforward channel no matter what rate the external controller is updating the feedforward channel at.  
+The sensors are also updated at a period of $T_H$.
 
 \begin{figure}[thpb]
   \centering
@@ -46,4 +54,17 @@ The PHC will always take the most recent reference from the feedforward channel 
   \caption{Hubo running PHC turning a valve using trajectories created using Bi-RRTs. }
   \label{fig:valve}
 \end{figure}
+
+Current capabilities of the PHC system includes:
+
+\begin{itemize}
+\item Full Hubo2 Plus compatibility 
+\item ROS support
+\item Independent process for controllers
+\item OpenRAVE trajectory playback
+\item OpenHUBO integration 
+\item Low frequency joint update filter.
+\end{itemize}
+
+
 
