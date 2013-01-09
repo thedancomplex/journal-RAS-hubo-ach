@@ -1,0 +1,124 @@
+
+A framework for IPC is proposed by the authors, with the
+goal eliminating head-of-line problems. Reviewers concur in
+judging the paper well written and solving the original
+question formulated by the authors. Nonetheless, some flaws
+are noticed:
+- presented examples seem to address exclusively the single
+publisher/single subscriber situation whereas the authors
+maintain Ach can be used also for multiple
+publishers/multiple subscribers. These claims need to be
+backed up by experimental evidence or removed.
+- the architecture seems to limit Ach to address IPC on the
+same host. Reviewers question first whether IPC is really
+needed, and, if this is the case, whether limiting to a
+single host is a too severe limitation.
+
+In conclusion, it is evident that Ach works fine for the
+examples presented in the paper, but one is left with the
+doubt whether the tackled problem is too narrow to
+guarantee a broader impact.
+
+----------------------------------------
+Comments on Video Attachment:
+
+
+
+Reviewer 2 of ICRA 2012 submission 432
+
+Comments to the author
+======================
+
+The authors present a real-time user-space implementation
+of an IPC for use in a multi-process robotics application.
+Their goals for the IPC are to remove the Head-of-Line
+issue and create a robust multi-input multi-output system
+applicable for robots; several of which are mentioned but
+not directly used in the testing or verification of the
+IPC.  Results are presented for a single publisher  single
+subscriber system which are on par with the kernel-based
+POSIX pipes.  However the paper claims the true benefits of
+the implementation present themselves when multiple
+publishers and subscribers are all present on the same
+channel.  No tests were conducted to verify these claims.
+The implementation does seem to solve the Head-of-Line
+issue which the authors address numerous times in the
+paper.
+
+With that said, nowadays most time-critical real-time
+control code is done in a single process with ISR for fast
+updating, a low-priority thread for network or interprocess
+communication. With the fast CPU, this is an adequate
+solution for most robotics applications. The added value of
+the ad-hoc Ach library therefore is rather limited.
+
+
+Reviewer 3 of ICRA 2012 submission 432
+
+Comments to the author
+======================
+
+The paper is very well written, since 1. background context
+&
+related work, 2. core idea and technical details of the
+proposed solution, and 3. experimental evaluation (plus
+formal verification as a nice bonus) are very clearly
+presented to the reader. Furthermore, it seems that the
+presented tool has actually been field-tested over multiple
+deployments on real robots and for a reasonably long period
+of time, attesting its maturity and technical soundness.
+This nicely contrasts to what often applies to other papers
+on software solutions for robotics.
+
+What unfortunately the paper really lacks is a compelling
+argument making the case for the proposed IPC
+infrastructure. The motivation that the authors mention
+multiple times is the so-called HOL problem, which
+characterizes other common IPC solutions. Though such
+problem can be circumvented by explicitly dealing with it
+within the consumer process, it is true that a solution
+like Ach can be more convenient. But why would it be much
+better than a typical multithreaded / shared memory
+solution? The authors only "assume that a multiple process
+approach will be more robust than a single-process or
+multi-threaded application", and remind the reader that "it
+is difficult for programmers to manually manage
+synchronization and guarantee performance". No further
+argument supports these claims.
+
+For what concerns robustness, the authors themselves
+remind us in Sec. V-B that a multi-process application
+suffers from deadlocks and, in general, problems stemming
+from concurrency issues, so the approach does not seem
+inherently superior. As for what regards managing
+synchronization while guaranteeing performance, there are
+tools (often language-based) to simplify multi-threaded
+program development  just as Ach tries to aid the
+development of multi-process applications. The authors
+should thus further elaborate on why the latter should be
+preferred
+over the former (I assume it mostly involves performance,
+since languages with "easy" multi-threading are often
+garbage-collected).
+
+A big drawback of Ach recognized by its authors is
+that it does not allow for processes to run on different
+hosts. This is probably what motivates 90% of the current
+SW frameworks for robotics using IPC, i.e., to allow for
+components to be transparently moved across the CPUs
+composing up a robotic system. Losing this flexibility is
+actually a big drawback.
+
+While Ach looks certainly like a finely crafted piece of
+software engineering, at the moment it does seem to fit a
+very specific need, that is fast, HOL-free IPC
+communication, but not to provide a clearly superior
+solution to the general problem of data sharing within
+robotics software frameworks. I therefore suggest the
+authors to directly pitch their solution against
+traditional multi-threaded ones and highlight the areas
+where it actually outperforms them.
+
+
+Typo: in the caption of Fig. 2, I1 points to a one byte
+message starting at D5, not I2

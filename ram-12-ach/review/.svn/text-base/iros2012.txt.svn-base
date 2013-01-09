@@ -1,0 +1,112 @@
+
+The paper clearly describes the proposed paradigm for
+inter-process communication. However, the reviews agree
+that the current form of the paper is not completely
+satisfactory:
+- the implemented functionalities are quite basic and the
+synchronization mechanisms are fairly simple
+- the real-time features are not experimentally evaluated
+- an analysis with different data dimensions is missing
+- possible solutions to prevent overwriting of data could
+be suggested
+- no result from a real robotics application is included
+
+The authors should streng their papers with an analysis on
+how the dimension of the buffer should be selected based on
+the application at hand. Additionally, they should motivate
+the selection of such a simple synchronization mechanism
+instead of readers/writer lock or multiple mutex for the
+different areas of the buffer.
+
+----------------------------------------
+Comments on Video Attachment:
+
+you should add information about the applications as
+suggested by a reviewer
+
+
+Review32437.txt
+
+Reviewer 2 of IROS 2012 submission 726
+
+Comments to the author
+======================
+
+The paper presents Ach, an inter-process communication
+library designed to support real-time robot control. The
+paper compares the proposed library with commonly available
+IPC tools, proposing two advantages over them: being
+suitable for real-time robotics applications, and solving
+the Head Of Line Blocking. The paper therefore presents a
+reasonable library, which implements functionalities that
+are often found in robotic systems. For example, the HOL
+problem is commonly faced, and the inter-process
+synchronization problems solved by the library are quite
+basic: the scientific relevance of such a system is not
+high, even though the Ach library could be useful to avoid
+reimplementing solutions to common problems. Moreover, the
+employed solution for inter-process synchronization is very
+similar to what should be done in the case of a
+multi-threading scenario, which authors claim would be
+difficult to face.
+The Ach IPC library seems limited in some features that
+would be sensibly beneficial on real systems. For example,
+the limitation to a single reader represents a strong
+constraint. Real-time is another feature that is stressed
+by the authors; however, the paper lacks an accurate
+evaluation of latency comparison that could highlight the
+better performance of Ach among other IPC communication
+libraries. The message size is another parameter that has
+not been considered for performance evaluation. Without
+such verification, real-time compliance looks more a claim
+than a real experiment-based conclusion.
+Finally, authors performed a formal verification of the
+library, which represents an important point; however,
+since Ach is a relatively simple system, this verification
+turns out to be a rather a trivial one.
+
+Comments on the Video Attachment
+================================
+
+Not available
+
+
+Review33323.txt
+
+Reviewer 3 of IROS 2012 submission 726
+
+Comments to the author
+======================
+
+Your analysis in sect II.E about CORBA and DSS is not
+completely true. CORBA notification service provides a
+publish-subsribe paradigm. There also exists a Real-Time
+CORBA version that is not mentionned (implemented in TAO
+for example).
+Concerning DSS you pretend that there is no "compatible
+opensource implementation": What do you mean with
+"compatible" ? What about OpenDDS ?
+
+The concept of a wrapping buffer is interesting but
+according to  figure 2, data could be overwritten by new
+and longer data which would produce data loss. It is
+consequently not clear if in real use different data is
+pushed into a single channel.
+
+In the ach_get function the determination of "the next
+index offset" is not clear.
+
+In section V A 3), when writing ",then we compute the older
+message in the buffer" do you mean "retrieve from the
+buffer" ?
+
+I would suggest to give some information about the
+applications, the data you transfer and the processes that
+are typically used in your applications.
+
+Comments on the Video Attachment
+================================
+
+I would suggest to add some more information about the
+application on the introductory slides (number of
+processes, control speed, ...).

@@ -1,0 +1,136 @@
+digraph  {
+
+         overlap="false";
+         splines="true";
+         node [fontsize=42];
+         edge [arrowsize=2];
+
+         /* Channels */
+         //ch_event[label="event",shape=box];
+
+         ch_wheel_state[label="wheel_state",shape=box];
+         ch_wheel_input[label="wheel_input",shape=box];
+
+         //ch_joystick[label="joystick",shape=box];
+
+         ch_imu[label="imu",shape=box];
+         ch_cmd[label="cmd",shape=box];
+
+         ch_waist_state[label="waist_state",shape=box];
+         ch_waist_input[label="waist_input",shape=box];
+
+         ch_l_arm_state[label=l_arm_state,shape=box];
+         ch_r_arm_state[label=r_arm_state,shape=box];
+         ch_l_arm_input[label=l_arm_input,shape=box];
+         ch_r_arm_input[label=r_arm_input,shape=box];
+
+         ch_r_hand_state[label=r_hand_state,shape=box];
+         ch_l_hand_state[label=l_hand_state,shape=box];
+         ch_r_hand_input[label=r_hand_input,shape=box];
+         ch_l_hand_input[label=l_hand_input,shape=box];
+
+         ch_l_ft[label=l_ft,shape=box];
+         ch_r_ft[label=r_ft,shape=box];
+
+         //ch_bms[label=bms,shape=box];
+
+         ch_nav[label=nav,shape=box];
+
+
+         /* Hardware */
+         //left_amc[label="left_amc",shape=parallelogram];
+         //right_amc[label="right_amc",shape=parallelogram];
+
+
+         /* Daemons */
+         imud[style=filled,fillcolor=gray];
+         //jachd[style=filled,fillcolor=gray];
+         l_ftd[style=filled,fillcolor=gray];
+         r_ftd[style=filled,fillcolor=gray];
+         l_pciod[style=filled,fillcolor=gray];
+         r_pciod[style=filled,fillcolor=gray];
+         w_pciod[style=filled,fillcolor=gray];
+         r_robotiqd[style=filled,fillcolor=gray];
+         l_robotiqd[style=filled,fillcolor=gray];
+         amciod[style=filled,fillcolor=gray];
+         //bmsd[style=filled,fillcolor=gray];
+
+         //bmscopd[style=filled,fillcolor="#ff8888"];
+         //slogd[style=filled,fillcolor="#ff8888"];
+
+         controld[style=filled,fillcolor="#88ff88"];
+         balanced[style=filled,fillcolor="#88ff88"];
+
+         /* Data Flow */
+
+         //bmsd -> ch_bms;
+         //ch_bms -> bmscopd;
+
+         //ch_event -> slogd;
+
+         //r_ftd -> ch_event;
+         r_ftd -> ch_r_ft;
+
+         //l_ftd -> ch_event;
+         l_ftd -> ch_l_ft;
+
+         //imud -> ch_event;
+         imud -> ch_imu
+
+         //amciod -> ch_event
+         amciod -> ch_wheel_state;
+         ch_wheel_input -> amciod;
+         //amciod -> left_amc[dir=both];
+         //amciod -> right_amc[dir=both];
+
+
+         //r_pciod -> event;
+         w_pciod -> ch_waist_state;
+         ch_waist_input -> w_pciod;
+
+         l_pciod -> ch_l_arm_state;
+         ch_l_arm_input -> l_pciod;
+
+         r_pciod -> ch_r_arm_state;
+         ch_r_arm_input -> r_pciod;
+
+         l_robotiqd -> ch_l_hand_state;
+         ch_l_hand_input -> l_robotiqd;
+
+         r_robotiqd -> ch_r_hand_state;
+         ch_r_hand_input -> r_robotiqd;
+
+
+         //jachd -> ch_joystick
+
+         //balanced -> ch_event
+         balanced -> ch_wheel_input;
+         ch_wheel_state -> balanced;
+         ch_l_arm_state -> balanced;
+         ch_r_arm_state -> balanced;
+         ch_l_ft -> balanced;
+         ch_r_ft -> balanced;
+         ch_waist_state -> balanced;
+         ch_imu -> balanced;
+         ch_nav -> balanced;
+
+
+         ch_wheel_state -> controld;
+         ch_l_arm_state -> controld;
+         ch_r_arm_state -> controld;
+         ch_waist_state -> controld;
+         ch_imu -> controld;
+         ch_cmd -> controld;
+         ch_l_hand_state -> controld;
+         ch_r_hand_state -> controld;
+         ch_l_ft -> controld;
+         ch_r_ft -> controld;
+
+         controld -> ch_l_arm_input;
+         controld -> ch_r_arm_input;
+         controld -> ch_l_hand_input;
+         controld -> ch_r_hand_input;
+         controld -> ch_waist_input;
+         controld -> ch_nav;
+
+}

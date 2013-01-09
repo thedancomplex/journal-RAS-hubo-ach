@@ -1,0 +1,301 @@
+%%
+\pgfsetcolor{black}
+  % Edge: ch_l_hand_input -> l_robotiqd
+  \draw [->] (788.52bp,541.75bp) .. controls (788.1bp,536.84bp) and (787.65bp,531.59bp)  .. (785.49bp,506.05bp);
+  % Edge: ch_l_hand_state -> controld
+  \draw [->] (651.86bp,388.16bp) .. controls (636.41bp,397.19bp) and (622.37bp,408.9bp)  .. (613bp,424bp) .. controls (571.33bp,491.2bp) and (579.99bp,547.37bp)  .. (639bp,600bp) .. controls (687.93bp,643.63bp) and (851.77bp,662.6bp)  .. (996.97bp,672.05bp);
+  % Edge: ch_r_hand_state -> controld
+  \draw [->] (269.01bp,388.14bp) .. controls (253.15bp,397.11bp) and (238.82bp,408.79bp)  .. (229bp,424bp) .. controls (186.07bp,490.48bp) and (194.94bp,549.66bp)  .. (256bp,600bp) .. controls (310.21bp,644.69bp) and (740.24bp,664.96bp)  .. (996.35bp,673.45bp);
+  % Edge: l_robotiqd -> ch_l_hand_state
+  \draw [->] (767.31bp,424.02bp) .. controls (765.33bp,418.49bp) and (763.28bp,412.77bp)  .. (754.41bp,388.05bp);
+  % Edge: ch_waist_state -> controld
+  \draw [->] (1028.8bp,388.1bp) .. controls (1013bp,397.09bp) and (998.74bp,408.79bp)  .. (989bp,424bp) .. controls (946.82bp,489.9bp) and (952.06bp,533.32bp)  .. (993bp,600bp) .. controls (1001.4bp,613.65bp) and (1013.1bp,625.09bp)  .. (1043.5bp,645.68bp);
+  % Edge: ch_wheel_state -> controld
+  \draw [->] (268.07bp,768.73bp) .. controls (454.4bp,748.9bp) and (790.46bp,713.14bp)  .. (1003.2bp,690.49bp);
+  % Edge: controld -> ch_waist_input
+  \draw [->] (1130bp,635.71bp) .. controls (1130bp,630.71bp) and (1130bp,625.56bp)  .. (1130bp,600.21bp);
+  % Edge: ch_imu -> balanced
+  \draw [->] (1929.5bp,753.76bp) .. controls (1978.1bp,717.24bp) and (2050bp,649.87bp)  .. (2050bp,571bp) .. controls (2050bp,571bp) and (2050bp,571bp)  .. (2050bp,465bp) .. controls (2050bp,441.6bp) and (2011.6bp,357.89bp)  .. (1968bp,330bp) .. controls (1928.5bp,304.75bp) and (1666.9bp,279.62bp)  .. (1470.3bp,263.62bp);
+  % Edge: ch_imu -> controld
+  \draw [->] (1837.8bp,776.25bp) .. controls (1725.8bp,760.54bp) and (1444.3bp,721.07bp)  .. (1252bp,694.1bp);
+  % Edge: r_ftd -> ch_r_ft
+  \draw [->] (1549bp,847.71bp) .. controls (1549bp,842.71bp) and (1549bp,837.56bp)  .. (1549bp,812.21bp);
+  % Edge: imud -> ch_imu
+  \draw [->] (1886bp,847.71bp) .. controls (1886bp,842.71bp) and (1886bp,837.56bp)  .. (1886bp,812.21bp);
+  % Edge: ch_cmd -> controld
+  \draw [->] (1130bp,753.75bp) .. controls (1130bp,748.84bp) and (1130bp,743.59bp)  .. (1130bp,718.05bp);
+  % Edge: controld -> ch_r_arm_input
+  \draw [->] (1226.1bp,648.31bp) .. controls (1269.9bp,635.22bp) and (1322.2bp,619.61bp)  .. (1387.6bp,600.08bp);
+  % Edge: controld -> ch_nav
+  \draw [->] (1209bp,643.78bp) .. controls (1229.8bp,632.24bp) and (1250.9bp,617.65bp)  .. (1267bp,600bp) .. controls (1289.3bp,575.47bp) and (1304.4bp,541.27bp)  .. (1319.9bp,494.08bp);
+  % Edge: ch_r_arm_input -> r_pciod
+  \draw [->] (1492.4bp,541.75bp) .. controls (1493.7bp,536.67bp) and (1495.1bp,531.22bp)  .. (1501.5bp,506.05bp);
+  % Edge: ch_l_arm_state -> balanced
+  \draw [->] (1655.9bp,329.96bp) .. controls (1595.2bp,315.75bp) and (1522bp,298.62bp)  .. (1440.4bp,279.53bp);
+  % Edge: ch_r_hand_input -> r_robotiqd
+  \draw [->] (408.52bp,541.75bp) .. controls (408.1bp,536.84bp) and (407.65bp,531.59bp)  .. (405.49bp,506.05bp);
+  % Edge: r_robotiqd -> ch_r_hand_state
+  \draw [->] (390.79bp,424.02bp) .. controls (389.3bp,418.58bp) and (387.76bp,412.96bp)  .. (380.95bp,388.05bp);
+  % Edge: ch_l_ft -> controld
+  \draw [->] (712.24bp,773.69bp) .. controls (776.67bp,758.77bp) and (905.66bp,728.92bp)  .. (1023.1bp,701.75bp);
+  % Edge: ch_r_arm_state -> controld
+  \draw [->] (1601.2bp,388.1bp) .. controls (1617bp,397.09bp) and (1631.3bp,408.79bp)  .. (1641bp,424bp) .. controls (1683.3bp,490.06bp) and (1683bp,544.1bp)  .. (1628bp,600bp) .. controls (1603.5bp,624.87bp) and (1416.2bp,648.64bp)  .. (1258.5bp,665.09bp);
+  % Edge: ch_nav -> balanced
+  \draw [->] (1327bp,435.97bp) .. controls (1327bp,404.75bp) and (1327bp,354.21bp)  .. (1327bp,294.03bp);
+  % Edge: ch_waist_input -> w_pciod
+  \draw [->] (1130bp,541.75bp) .. controls (1130bp,536.84bp) and (1130bp,531.59bp)  .. (1130bp,506.05bp);
+  % Edge: ch_l_arm_input -> l_pciod
+  \draw [->] (1851.1bp,541.75bp) .. controls (1850.7bp,536.84bp) and (1850.4bp,531.59bp)  .. (1848.7bp,506.05bp);
+  % Edge: balanced -> ch_wheel_input
+  \draw [->] (1206.5bp,229.08bp) .. controls (1130.3bp,213.95bp) and (1030.9bp,194.23bp)  .. (929.05bp,174.01bp);
+  % Edge: controld -> ch_r_hand_input
+  \draw [->] (1006.7bp,660.84bp) .. controls (895.12bp,645.96bp) and (726.36bp,622.8bp)  .. (580bp,600bp) .. controls (578.95bp,599.84bp) and (577.89bp,599.67bp)  .. (557.06bp,596.35bp);
+  % Edge: ch_waist_state -> balanced
+  \draw [->] (1184.1bp,329.89bp) .. controls (1201.7bp,320.42bp) and (1221.7bp,309.65bp)  .. (1258.9bp,289.62bp);
+  % Edge: l_pciod -> ch_l_arm_state
+  \draw [->] (1821bp,424.93bp) .. controls (1817.1bp,418.54bp) and (1812.9bp,411.89bp)  .. (1798.2bp,388.23bp);
+  % Edge: ch_wheel_state -> balanced
+  \draw [->] (134bp,753.85bp) .. controls (134bp,712.98bp) and (134bp,636.33bp)  .. (134bp,571bp) .. controls (134bp,571bp) and (134bp,571bp)  .. (134bp,465bp) .. controls (134bp,402.42bp) and (125.13bp,369.09bp)  .. (174bp,330bp) .. controls (211.84bp,299.73bp) and (849.4bp,271.29bp)  .. (1180.2bp,258.37bp);
+  % Edge: ch_r_ft -> controld
+  \draw [->] (1505.7bp,772.06bp) .. controls (1446.6bp,757.09bp) and (1338bp,729.63bp)  .. (1233.3bp,703.14bp);
+  % Edge: controld -> ch_l_hand_input
+  \draw [->] (1036bp,647.61bp) .. controls (994.9bp,634.76bp) and (946.32bp,619.57bp)  .. (883.99bp,600.08bp);
+  % Edge: ch_r_ft -> balanced
+  \draw [->] (1592.1bp,773.03bp) .. controls (1707.1bp,745.23bp) and (2012bp,662.83bp)  .. (2012bp,571bp) .. controls (2012bp,571bp) and (2012bp,571bp)  .. (2012bp,465bp) .. controls (2012bp,392.14bp) and (1981.2bp,367.99bp)  .. (1919bp,330bp) .. controls (1849.7bp,287.67bp) and (1643.5bp,268.31bp)  .. (1473.7bp,258.54bp);
+  % Edge: ch_l_ft -> balanced
+  \draw [->] (631.93bp,775.05bp) .. controls (513.28bp,750.37bp) and (172bp,670.71bp)  .. (172bp,571bp) .. controls (172bp,571bp) and (172bp,571bp)  .. (172bp,465bp) .. controls (172bp,401.32bp) and (169.28bp,368.5bp)  .. (220bp,330bp) .. controls (292.9bp,274.66bp) and (867.58bp,259.05bp)  .. (1179bp,254.39bp);
+  % Edge: ch_l_arm_state -> controld
+  \draw [->] (1749bp,388.04bp) .. controls (1739.1bp,398.62bp) and (1728.6bp,411.15bp)  .. (1721bp,424bp) .. controls (1678.8bp,495.2bp) and (1723.8bp,547.26bp)  .. (1660bp,600bp) .. controls (1604.1bp,646.21bp) and (1419.4bp,664.7bp)  .. (1263.7bp,673.12bp);
+  % Edge: r_pciod -> ch_r_arm_state
+  \draw [->] (1507.4bp,424.02bp) .. controls (1506.8bp,418.77bp) and (1506.2bp,413.35bp)  .. (1503.3bp,388.05bp);
+  % Edge: ch_wheel_input -> amciod
+  \draw [->] (697.17bp,117.89bp) .. controls (652.68bp,104.38bp) and (599.55bp,88.245bp)  .. (534.21bp,68.4bp);
+  % Edge: l_ftd -> ch_l_ft
+  \draw [->] (672bp,847.71bp) .. controls (672bp,842.71bp) and (672bp,837.56bp)  .. (672bp,812.21bp);
+  % Edge: ch_r_arm_state -> balanced
+  \draw [->] (1452.3bp,329.75bp) .. controls (1437.7bp,320.84bp) and (1421.3bp,310.8bp)  .. (1388.2bp,290.51bp);
+  % Edge: amciod -> ch_wheel_state
+  \draw [->] (336.27bp,59.746bp) .. controls (234.07bp,84.446bp) and (96bp,138.92bp)  .. (96bp,253bp) .. controls (96bp,571bp) and (96bp,571bp)  .. (96bp,571bp) .. controls (96bp,627.75bp) and (109.35bp,691.72bp)  .. (125.38bp,753.8bp);
+  % Edge: w_pciod -> ch_waist_state
+  \draw [->] (1130bp,423.71bp) .. controls (1130bp,418.71bp) and (1130bp,413.56bp)  .. (1130bp,388.21bp);
+  % Edge: controld -> ch_l_arm_input
+  \draw [->] (1255.8bp,662.63bp) .. controls (1368.5bp,649.21bp) and (1538.9bp,627.59bp)  .. (1721.9bp,597.62bp);
+  % Node: ch_wheel_state
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (268bp,812bp) -- (0bp,812bp) -- (0bp,754bp) -- (268bp,754bp) -- cycle;
+  \draw (134bp,783bp) node {wheel\_state};
+\end{scope}
+  % Node: amciod
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (444bp,41bp) ellipse (121bp and 41bp);
+  \draw (444bp,41bp) node {amciod};
+\end{scope}
+  % Node: balanced
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.53,1.0,0.53};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (1327bp,253bp) ellipse (148bp and 41bp);
+  \draw (1327bp,253bp) node {balanced};
+\end{scope}
+  % Node: ch_l_hand_state
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (885bp,388bp) -- (603bp,388bp) -- (603bp,330bp) -- (885bp,330bp) -- cycle;
+  \draw (744bp,359bp) node {l\_hand\_state};
+\end{scope}
+  % Node: w_pciod
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (1130bp,465bp) ellipse (132bp and 41bp);
+  \draw (1130bp,465bp) node {w\_pciod};
+\end{scope}
+  % Node: l_robotiqd
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (782bp,465bp) ellipse (160bp and 41bp);
+  \draw (782bp,465bp) node {l\_robotiqd};
+\end{scope}
+  % Node: imud
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (1886bp,889bp) ellipse (87bp and 41bp);
+  \draw (1886bp,889bp) node {imud};
+\end{scope}
+  % Node: ch_waist_state
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1257bp,388bp) -- (1003bp,388bp) -- (1003bp,330bp) -- (1257bp,330bp) -- cycle;
+  \draw (1130bp,359bp) node {waist\_state};
+\end{scope}
+  % Node: r_ftd
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (1549bp,889bp) ellipse (80bp and 41bp);
+  \draw (1549bp,889bp) node {r\_ftd};
+\end{scope}
+  % Node: ch_r_arm_input
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1619bp,600bp) -- (1351bp,600bp) -- (1351bp,542bp) -- (1619bp,542bp) -- cycle;
+  \draw (1485bp,571bp) node {r\_arm\_input};
+\end{scope}
+  % Node: ch_waist_input
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1258bp,600bp) -- (1002bp,600bp) -- (1002bp,542bp) -- (1258bp,542bp) -- cycle;
+  \draw (1130bp,571bp) node {waist\_input};
+\end{scope}
+  % Node: ch_r_hand_input
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (557bp,600bp) -- (265bp,600bp) -- (265bp,542bp) -- (557bp,542bp) -- cycle;
+  \draw (411bp,571bp) node {r\_hand\_input};
+\end{scope}
+  % Node: r_robotiqd
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (402bp,465bp) ellipse (164bp and 41bp);
+  \draw (402bp,465bp) node {r\_robotiqd};
+\end{scope}
+  % Node: controld
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.53,1.0,0.53};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (1130bp,677bp) ellipse (134bp and 41bp);
+  \draw (1130bp,677bp) node {controld};
+\end{scope}
+  % Node: ch_imu
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1934bp,812bp) -- (1838bp,812bp) -- (1838bp,754bp) -- (1934bp,754bp) -- cycle;
+  \draw (1886bp,783bp) node {imu};
+\end{scope}
+  % Node: ch_l_arm_state
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1910bp,388bp) -- (1650bp,388bp) -- (1650bp,330bp) -- (1910bp,330bp) -- cycle;
+  \draw (1780bp,359bp) node {l\_arm\_state};
+\end{scope}
+  % Node: ch_r_ft
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1592bp,812bp) -- (1506bp,812bp) -- (1506bp,754bp) -- (1592bp,754bp) -- cycle;
+  \draw (1549bp,783bp) node {r\_ft};
+\end{scope}
+  % Node: ch_r_arm_state
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1632bp,388bp) -- (1368bp,388bp) -- (1368bp,330bp) -- (1632bp,330bp) -- cycle;
+  \draw (1500bp,359bp) node {r\_arm\_state};
+\end{scope}
+  % Node: l_ftd
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (672bp,889bp) ellipse (75bp and 41bp);
+  \draw (672bp,889bp) node {l\_ftd};
+\end{scope}
+  % Node: ch_cmd
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1184bp,812bp) -- (1076bp,812bp) -- (1076bp,754bp) -- (1184bp,754bp) -- cycle;
+  \draw (1130bp,783bp) node {cmd};
+\end{scope}
+  % Node: ch_nav
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1374bp,494bp) -- (1280bp,494bp) -- (1280bp,436bp) -- (1374bp,436bp) -- cycle;
+  \draw (1327bp,465bp) node {nav};
+\end{scope}
+  % Node: ch_wheel_input
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (929bp,176bp) -- (657bp,176bp) -- (657bp,118bp) -- (929bp,118bp) -- cycle;
+  \draw (793bp,147bp) node {wheel\_input};
+\end{scope}
+  % Node: l_pciod
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (1846bp,465bp) ellipse (116bp and 41bp);
+  \draw (1846bp,465bp) node {l\_pciod};
+\end{scope}
+  % Node: ch_r_hand_state
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (517bp,388bp) -- (229bp,388bp) -- (229bp,330bp) -- (517bp,330bp) -- cycle;
+  \draw (373bp,359bp) node {r\_hand\_state};
+\end{scope}
+  % Node: r_pciod
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.75,0.75,0.75};
+  \pgfsetfillcolor{fillcol}
+  \filldraw [opacity=1.0] (1512bp,465bp) ellipse (120bp and 41bp);
+  \draw (1512bp,465bp) node {r\_pciod};
+\end{scope}
+  % Node: ch_l_arm_input
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1984bp,600bp) -- (1722bp,600bp) -- (1722bp,542bp) -- (1984bp,542bp) -- cycle;
+  \draw (1853bp,571bp) node {l\_arm\_input};
+\end{scope}
+  % Node: ch_l_ft
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (712bp,812bp) -- (632bp,812bp) -- (632bp,754bp) -- (712bp,754bp) -- cycle;
+  \draw (672bp,783bp) node {l\_ft};
+\end{scope}
+  % Node: ch_l_hand_input
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (934bp,600bp) -- (648bp,600bp) -- (648bp,542bp) -- (934bp,542bp) -- cycle;
+  \draw (791bp,571bp) node {l\_hand\_input};
+\end{scope}
+%
