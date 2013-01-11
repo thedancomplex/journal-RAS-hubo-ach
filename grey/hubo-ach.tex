@@ -1,0 +1,64 @@
+\section{Hubo-Ach: Linux on Hubo}
+
+\begin{figure*}[thpb]
+  \centering
+\includegraphics[width=2.0\columnwidth]{./pix/hubo-ach-diagram-example.pdf}
+  \caption{Hubo-Ach interfacing with two seperate processes creating a closed loop system.  Process 0 (Hubo-Ach) takes the most recent command from the Feedforward Ach channel.
+  It sends the reference over the CAN bus to the Hubo.  
+  The state of the robot is updated and stored in the Feedback Ach chanel.  
+  Process 1 reads the state at its own rate, proforms the desired control then sends the the desired references to Process 2.  
+This process is a low-pass filter that reduces the jerk on each joint.  
+It smooths the desired trajectory allowing Process 1 to send step input to any of the joints at any rate. 
+The reference command for each joint is set on the Feedforward Ach channel at a regular rate compleating the closed loop system.}
+  \label{fig:graph}
+\end{figure*}
+
+
+Hubo-Ach is the open-source, Linux based, BSD licensed system run on Hubo.  
+It was designed by Daniel M. Lofaro\footnote{Daniel M. Lofaro: http://danlofaro.com/} and Neil Dantam  and created in collaboration with the \textit{Drexel Autonomous Systems Lab} at Drexel University and \textit{Golems - The Humanoid Robotics Laboratory}\footnote{Golems - The Humanoid Robotics Labatory: www.golems.org/} at the Georgia Institute of Technology.  
+
+The overarching goal of the Hubo-Ach system is to create an easy to use interface between the Hubo's hardware and the programming environment.  
+System design decisions were made with the programmers and developers of the Hubo in mind.
+This design philosophy streamlines closed-loop controller implementation, human robot interaction development and the utilization of popular robot related systems such as ROS\footnote{ROS: http://www.ros.org/} (Robot Operating System), OpenRAVE\footnote{OpenRAVE: http://openrave.org/} and MATLAB\footnote{MATLAB: http://www.mathworks.com/} on the Hubo platform.
+
+Hubo-Ach is a daemon process that uses a high-speed, low-latency IPC called Ach \cite{ach} to comunicate with controllers.
+Each controller are indipendent processies.
+It is designed such that controllers are able to command each joint over an Ach channel at arbratary rates.
+Hubo-Ach impliments a real-time loop in which all of the motor references and state data are sest and updated respectively.
+The motor references are set to the Hubo over the CAN bus with the latest reference on the feedforward chanel.
+This is sent at the rising edge of the real-time loop.
+Sensor updates are requested directly after all references are sent.
+The real-time loop runs with a period of $T_0$.
+$T_0$ is currently set to 0.005 $sec$.
+This causes a CAN bus utiliztion of 78\%.
+The real-time loop in Hubo-Ach is needed to ensure the internal phase lock loop (PLL) of the motor controllers lock onto the reference update rate.
+This is then used for linear interpolation of the reference onboard the motor controllers.
+The real-time loop is also is used to ensure the CAN bus bandwidth is not saturated.
+
+
+Fig.~\ref{fig:graph} shows an example of how the Hubo-Ach system works.
+\textit{Process 1} gets feedback from Hubo via the \textbf{Feedback} Ach channel populated via Hubo-Ach.  
+\textit{Process 1} requests feedback data with a period of $T_1$.
+If $T_1>T_0$ then \textit{Process 1} will receive the most recent state data received by Hubo-Ach from the Hubo with no overlapping frames.
+If $T_1<T_0$ \textit{Process 1} will also receive the latest state data received by Hubo-Ach from the Hubo however some frames will overlap causing identical state data to be returned.
+\textit{Process 1} performs calculations for the given task or control.
+The resulting reference commands are created and sent to \textit{Process 2} via the \textbf{Ref} Ach channel with an update period of $T_2$.
+\textit{Process 2} is a low-pass filter that limits the jerk on each joint.
+The resulting trajectory is sent to the \textbf{Feedforward} Ach chanel with a period of $T_3$.
+$T_3$ is currently set to 0.01 $sec$.
+This means that $T_2$ does not have to be a regular rate.
+Thus it is possiable for $T_2>>T3$ with out harm to the robot even it it is a step input.
+The resulting movements of Hubo are smooth and jitter free.
+
+The key point is that Hubo-Ach updates the state data in the \textbf{Feedback} Ach channel commands the motors with the references from the \textbf{Feedforward} Ach channel in real-time with a preiod of $T_0$ no matter what rate the external controller is updating the feedforward channel.  
+In addition because each controller is its own process, if one of the processes crashes Hubo-Ach does not.
+The failed process can then be restarted with no harm done to the robot.
+
+
+
+
+
+
+
+
+
