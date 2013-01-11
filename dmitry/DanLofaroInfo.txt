@@ -1,0 +1,11 @@
+Name: Daniel M. Lofaro
+Email: dan@danLofaro.com
+Website: danlofaro.com
+Dept: Electrical and Computer Enginieering
+University: Drexel University
+Lab: Drexel Autonomous Systems Lab
+IEEE Status: IEEE Member
+
+
+Be sure to put the following in the footer on the first page, first column:
+"This work was supported in part by the Defense Advanced Research Projects Agency (DARPA) award #N65236-12-1-1005 for the DARPA Robotics Challenge"
