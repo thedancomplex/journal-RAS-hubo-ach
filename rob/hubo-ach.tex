@@ -3,7 +3,7 @@
 \begin{figure*}[thpb]
   \centering
 \includegraphics[width=2.0\columnwidth]{./pix/hubo-ach-diagram-OpenHUBO.pdf}
-  \caption{Hubo Primary Controller (HPC) and system framework}
+  \caption{Hubo-Ach interfacing with two seperate processes creating a closed loop system.  Process 0 (Hubo-Ach) takes the most recent command from the Feedforward Ach chanel and sends the reference command over the CAN bus to the Hubo.  The state date, including force-torque date from the ankles and wrists, IMU feed back, and actuial joint positions from the encoders are received and stored in the Feedback Ach chanel.  Process 1 (OpenHUBO) reads this data at its own rate, proforms the desired task such as calculating the inverse kinimatics inorder to pickup a cup and sends the the desired references to Process 2.  This process is a low-pass filter that reduces the jerk on each joint.  This smooths the desired trajectory allowing Process 1 to send step input to any of the joints. The reference command for each joint is set on the Feedforward Ach channel at a regular rate compleating the closed loop system.}
   \label{fig:graph}
 \end{figure*}
 
