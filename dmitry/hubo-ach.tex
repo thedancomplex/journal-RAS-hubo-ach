@@ -39,6 +39,16 @@ The CAN bus is limited to 1.0 $Mbps$ bandwidth per channel.
 
 
 
+\begin{figure}[thpb]
+  \centering
+\includegraphics[width=1.0\columnwidth]{./pix/hubo_valve.png}
+  \caption{Hubo running PHC turning a valve using trajectories created using Bi-RRTs. }
+  \label{fig:valve}
+\end{figure}
+
+
+
+
 Fig.~\ref{fig:graph-ros} shows an example of how the Hubo-Ach system creates a closed-loop system with a Hubo visualizer using ROS and rviz.
 \textit{Process 1} and \textit{Process 4} are a part of the Hubo-Ach to ROS layer.
 They convert the reference and state data from the Hubo-Ach \textbf{Feedforward} and \textbf{Feedback} channels and convert them to a ROS Message format.
@@ -57,22 +67,32 @@ References posted on \textbf{Ref} read by \textit{Process 5} via the \textbf{Ref
 The resulting trajectory is sent to the \textbf{Feedforward} Ach chanel with a period of $T_3$.
 $T_3$ is currently set to 0.01 $sec$.
 This means that $T_2$ does not have to be a regular rate.
-Thus it is possiable for $T_2>>T3$ with out harm to the robot even it it is a step input.
+Thus it is possiable for $T_2>>T_3$ with out harm to the robot even it it is a step input.
 The resulting movements of Hubo are smooth and jitter free.
 
 The key point is that Hubo-Ach updates the state data in the \textbf{Feedback} Ach channel commands the motors with the references from the \textbf{Feedforward} Ach channel in real-time with a preiod of $T_0$ no matter what rate the external controller is updating the feedforward channel.  
 In addition because each controller is its own process, if one of the processes crashes Hubo-Ach does not.
 The failed process can then be restarted with no harm done to the robot.
 
+Fig.~\ref{fig:graph-ros-valve} shows the process for running openloop trajectories on Hubo. 
+In this case the desired task is to turn a valve.
+For this a vitrural model of the valve is created in OpenRAVE.
+The Hubo comptuer model known as OpenHUBO is used in conjunction with the valve model to create the artificial enviroment \cite{jaemi-hubo-first}.
+A trajectory is created guaranteeing static stability and a collision free path for the robot while proforming the task.
+This trajectory is writtent to a trajectory file.
+The trajectory reader processs reads this file and sets the joint space references at any desired rate.
+The resulting references are sent through a live low-pass filter and continiues on in the same manor as the example in Fig~\ref{fig:graph-ros}.
 
-
-
-\begin{figure}[thpb]
+\begin{figure*}[thpb]
   \centering
-\includegraphics[width=1.0\columnwidth]{./pix/hubo_valve.png}
-  \caption{Hubo running PHC turning a valve using trajectories created using Bi-RRTs. }
-  \label{fig:valve}
-\end{figure}
+\includegraphics[width=2.0\columnwidth]{./pix/hubo-ach-diagram-openhubo-valve.pdf}
+  \caption{Process for running openloop trajectories on Hubo.  \textit{Process 4} uses the OpenHUBO and a model of the desired valve in OpenRAVE to create a collision free and statically stable movement trajectory.  This trajectory is written to a file with a desired command perdiod $T_t$.  \textit{Process 2} reads the trajectory and posts the references to the \textbf{Ref} Ach channel with a period of $T_2$.  \textit{Process 1} is a low-pass filter for the reference commands.  It reads the \textbf{Ref} Channel, reduces the jerk and posts to the \textbf{Feedforward} Ach channel at a real-time period of $T_1$.  Hubo-Ach updates the reference to the Hubo over CAN with a period of $T_0$.  Only the most recent reference posted on the \textbf{Feedforward} channel is used.}
+  \label{fig:graph-ros-valve}
+\end{figure*}
+
+
+
+
 
 
 
